@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="GenreCollectionViewCell" customModule="MovieDB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aw8-Qf-k3R">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comedy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71A-sJ-QfI">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="71A-sJ-QfI" firstAttribute="leading" secondItem="aw8-Qf-k3R" secondAttribute="leading" id="I56-UP-qCz"/>
+                            <constraint firstAttribute="bottom" secondItem="71A-sJ-QfI" secondAttribute="bottom" id="gXx-XW-F9G"/>
+                            <constraint firstItem="71A-sJ-QfI" firstAttribute="top" secondItem="aw8-Qf-k3R" secondAttribute="top" id="rvF-c3-9pa"/>
+                            <constraint firstAttribute="trailing" secondItem="71A-sJ-QfI" secondAttribute="trailing" id="viC-5D-10q"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="aw8-Qf-k3R" secondAttribute="trailing" id="Z76-Xs-idt"/>
+                <constraint firstAttribute="bottom" secondItem="aw8-Qf-k3R" secondAttribute="bottom" id="hUq-uf-XYg"/>
+                <constraint firstItem="aw8-Qf-k3R" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="nuy-5o-Zay"/>
+                <constraint firstItem="aw8-Qf-k3R" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zBT-G6-Z6z"/>
+            </constraints>
+            <connections>
+                <outlet property="lblGenre" destination="71A-sJ-QfI" id="iXe-Tv-gxE"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="21"/>
+        </collectionViewCell>
+    </objects>
+</document>
