@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func setupView() {
-        let homeVC = HomePageViewController()
+        let homeVC = HomePageRouter.createModule()
         
         mainNavigationController = UINavigationController(rootViewController: homeVC)
         mainNavigationController?.isNavigationBarHidden = false

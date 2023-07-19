@@ -11,9 +11,12 @@ class HomePageViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var presenter: HomePagePresenter?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        presenter?.getMovieNowPlaying()
     }
     
     private func setupView() {
@@ -31,9 +34,12 @@ extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ListCategoryMovieTableViewCell.ID, for: indexPath) as! ListCategoryMovieTableViewCell
-        
-        return cell
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ListCategoryMovieTableViewCell.ID, for: indexPath) as! ListCategoryMovieTableViewCell
+            cell.setData(title: "Now Playing", movie: presenter?.movieNowPlaying ?? [])
+            return cell
+        }
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
