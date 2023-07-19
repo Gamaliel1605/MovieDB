@@ -14,8 +14,8 @@ enum RealmError: Error {
 }
 
 protocol HomePageLocalDataSource {
-    func addMovieData(from movieListData: [MovieListEntity]) -> Observable<Bool>
-    func getMovieData() -> Observable<[MovieListEntity]>
+    func addMovieData(from movieListData: [MovieListEntity], category: CategoryMovie) -> Observable<Bool>
+    func getMovieData(category: CategoryMovie) -> Observable<[MovieListEntity]>
 }
 
 class HomePageDefaultLocalDataSource {
@@ -33,41 +33,46 @@ class HomePageDefaultLocalDataSource {
 
 extension HomePageDefaultLocalDataSource: HomePageLocalDataSource {
     
-    func addMovieData(from movieListData: [MovieListEntity]) -> Observable<Bool> {
+    func addMovieData(from movieListData: [MovieListEntity], category: CategoryMovie) -> Observable<Bool> {
         return Observable<Bool>.create { observer in
-            if let realm = self.realm {
-                do {
-                    if !movieListData.isEmpty {
-                        try realm.write({
-                            for movie in movieListData {
-                                realm.add(movie, update: .all)
-                            }
-                        })
+            do {
+                let realm = try self.getRealmInstance(for: category)
+                if !movieListData.isEmpty {
+                    try realm.write {
+                        for movie in movieListData {
+                            realm.add(movie, update: .all)
+                        }
                     }
-                    observer.onNext(true)
-                    observer.onCompleted()
-                } catch let error {
-                    observer.onError(error)
                 }
+                observer.onNext(true)
+                observer.onCompleted()
+            } catch let error {
+                observer.onError(error)
             }
             return Disposables.create()
         }
     }
     
-    func getMovieData() -> Observable<[MovieListEntity]> {
+    func getMovieData(category: CategoryMovie) -> Observable<[MovieListEntity]> {
         return Observable<[MovieListEntity]>.create { observer in
-            if let realm = self.realm {
-                let movieData: Results<MovieListEntity> = {
-                    realm.objects(MovieListEntity.self)
-                }()
+            do {
+                let realm = try self.getRealmInstance(for: category)
+                let movieData: Results<MovieListEntity> = realm.objects(MovieListEntity.self)
                 observer.onNext(movieData.toArray(ofType: MovieListEntity.self))
                 observer.onCompleted()
-            } else {
+            } catch {
                 observer.onError(RealmError.readError)
             }
             return Disposables.create()
         }
     }
+    
+    private func getRealmInstance(for category: CategoryMovie) throws -> Realm {
+            var config = Realm.Configuration()
+            let filename = "\(category).realm"
+            config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent(filename)
+            return try Realm(configuration: config)
+        }
     
 }
 

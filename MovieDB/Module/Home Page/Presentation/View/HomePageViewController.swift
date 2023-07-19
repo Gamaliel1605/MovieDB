@@ -16,7 +16,7 @@ class HomePageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        presenter?.getMovieNowPlaying()
+        presenter?.viewDidLoad()
     }
     
     private func setupView() {
@@ -30,7 +30,7 @@ class HomePageViewController: UIViewController {
 extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -38,8 +38,19 @@ extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: ListCategoryMovieTableViewCell.ID, for: indexPath) as! ListCategoryMovieTableViewCell
             cell.setData(title: "Now Playing", movie: presenter?.movieNowPlaying ?? [])
             return cell
+        } else if indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ListCategoryMovieTableViewCell.ID, for: indexPath) as! ListCategoryMovieTableViewCell
+            cell.setData(title: "Popular", movie: presenter?.moviePopular ?? [])
+            return cell
+        } else if indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ListCategoryMovieTableViewCell.ID, for: indexPath) as! ListCategoryMovieTableViewCell
+            cell.setData(title: "Popular", movie: presenter?.movieTopRated ?? [])
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ListCategoryMovieTableViewCell.ID, for: indexPath) as! ListCategoryMovieTableViewCell
+            cell.setData(title: "Popular", movie: presenter?.movieUpcoming ?? [])
+            return cell
         }
-        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
