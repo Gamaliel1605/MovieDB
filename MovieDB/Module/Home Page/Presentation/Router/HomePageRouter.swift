@@ -20,4 +20,9 @@ class HomePageRouter {
         return controller
     }
     
+    func goToDetailPage(movieID: Int, controller: UIViewController) {
+        let detailController = DetailPageRouter.createModule(movieID: movieID)
+        controller.navigationController?.pushViewController(detailController, animated: true)
+    }
+    
 }

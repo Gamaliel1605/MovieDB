@@ -36,25 +36,37 @@ extension HomePageViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: ListCategoryMovieTableViewCell.ID, for: indexPath) as! ListCategoryMovieTableViewCell
-            cell.setData(title: "Now Playing", movie: presenter?.movieNowPlaying ?? [])
+            cell.setData(title: "Now Playing", movie: presenter?.movieNowPlaying ?? [], delegate: self)
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: ListCategoryMovieTableViewCell.ID, for: indexPath) as! ListCategoryMovieTableViewCell
-            cell.setData(title: "Popular", movie: presenter?.moviePopular ?? [])
+            cell.setData(title: "Popular", movie: presenter?.moviePopular ?? [], delegate: self)
             return cell
         } else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: ListCategoryMovieTableViewCell.ID, for: indexPath) as! ListCategoryMovieTableViewCell
-            cell.setData(title: "Popular", movie: presenter?.movieTopRated ?? [])
+            cell.setData(title: "Top Rated", movie: presenter?.movieTopRated ?? [], delegate: self)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ListCategoryMovieTableViewCell.ID, for: indexPath) as! ListCategoryMovieTableViewCell
-            cell.setData(title: "Popular", movie: presenter?.movieUpcoming ?? [])
+            cell.setData(title: "Upcoming", movie: presenter?.movieUpcoming ?? [], delegate: self)
             return cell
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
+    }
+    
+}
+
+extension HomePageViewController: ListCategoryMovieTableViewCellDelegate {
+    
+    func onDidSelectItem(ID: Int) {
+        presenter?.goToDetailPage(movieID: ID)
     }
     
 }

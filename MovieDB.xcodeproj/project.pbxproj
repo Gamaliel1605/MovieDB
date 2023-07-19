@@ -46,6 +46,12 @@
 		F427C22D2A669E7B00B604DE /* ListCategoryMovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F427C22B2A669E7B00B604DE /* ListCategoryMovieTableViewCell.xib */; };
 		F427C2302A669F6300B604DE /* CardMovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427C22E2A669F6300B604DE /* CardMovieCollectionViewCell.swift */; };
 		F427C2312A669F6300B604DE /* CardMovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F427C22F2A669F6300B604DE /* CardMovieCollectionViewCell.xib */; };
+		F427C2332A67993400B604DE /* GenreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427C2322A67993400B604DE /* GenreModel.swift */; };
+		F427C2352A67994F00B604DE /* ProductionCompaniesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427C2342A67994F00B604DE /* ProductionCompaniesModel.swift */; };
+		F427C2392A67A0C100B604DE /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427C2372A67A0C100B604DE /* GenreCollectionViewCell.swift */; };
+		F427C23A2A67A0C100B604DE /* GenreCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F427C2382A67A0C100B604DE /* GenreCollectionViewCell.xib */; };
+		F427C23D2A67A12600B604DE /* ProductionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F427C23B2A67A12600B604DE /* ProductionCollectionViewCell.swift */; };
+		F427C23E2A67A12600B604DE /* ProductionCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F427C23C2A67A12600B604DE /* ProductionCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +121,12 @@
 		F427C22B2A669E7B00B604DE /* ListCategoryMovieTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCategoryMovieTableViewCell.xib; sourceTree = "<group>"; };
 		F427C22E2A669F6300B604DE /* CardMovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardMovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		F427C22F2A669F6300B604DE /* CardMovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardMovieCollectionViewCell.xib; sourceTree = "<group>"; };
+		F427C2322A67993400B604DE /* GenreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreModel.swift; sourceTree = "<group>"; };
+		F427C2342A67994F00B604DE /* ProductionCompaniesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionCompaniesModel.swift; sourceTree = "<group>"; };
+		F427C2372A67A0C100B604DE /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
+		F427C2382A67A0C100B604DE /* GenreCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GenreCollectionViewCell.xib; sourceTree = "<group>"; };
+		F427C23B2A67A12600B604DE /* ProductionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionCollectionViewCell.swift; sourceTree = "<group>"; };
+		F427C23C2A67A12600B604DE /* ProductionCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductionCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -302,6 +314,7 @@
 		F427C1DB2A6697F200B604DE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F427C2362A67A09E00B604DE /* Component */,
 				F427C1E02A66982700B604DE /* DetailPageViewController.swift */,
 				F427C1E12A66982700B604DE /* DetailPageViewController.xib */,
 			);
@@ -347,6 +360,8 @@
 			isa = PBXGroup;
 			children = (
 				F427C1EC2A6698A700B604DE /* DetailMovieModel.swift */,
+				F427C2322A67993400B604DE /* GenreModel.swift */,
+				F427C2342A67994F00B604DE /* ProductionCompaniesModel.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -536,6 +551,17 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		F427C2362A67A09E00B604DE /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				F427C2372A67A0C100B604DE /* GenreCollectionViewCell.swift */,
+				F427C2382A67A0C100B604DE /* GenreCollectionViewCell.xib */,
+				F427C23B2A67A12600B604DE /* ProductionCollectionViewCell.swift */,
+				F427C23C2A67A12600B604DE /* ProductionCollectionViewCell.xib */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -646,10 +672,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F427C20C2A669A4800B604DE /* HomePageViewController.xib in Resources */,
+				F427C23A2A67A0C100B604DE /* GenreCollectionViewCell.xib in Resources */,
 				F4261EBB2A64210C00718138 /* LaunchScreen.storyboard in Resources */,
 				F4261EB82A64210B00718138 /* Assets.xcassets in Resources */,
 				F427C2312A669F6300B604DE /* CardMovieCollectionViewCell.xib in Resources */,
 				F427C1E32A66982700B604DE /* DetailPageViewController.xib in Resources */,
+				F427C23E2A67A12600B604DE /* ProductionCollectionViewCell.xib in Resources */,
 				F427C22D2A669E7B00B604DE /* ListCategoryMovieTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -779,6 +807,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F427C2142A669A8900B604DE /* MovieListModel.swift in Sources */,
+				F427C2332A67993400B604DE /* GenreModel.swift in Sources */,
 				F427C2302A669F6300B604DE /* CardMovieCollectionViewCell.swift in Sources */,
 				F427C2282A669BCF00B604DE /* HomePageDefaultLocalDataSource.swift in Sources */,
 				F427C22C2A669E7B00B604DE /* ListCategoryMovieTableViewCell.swift in Sources */,
@@ -795,9 +824,12 @@
 				F427C20F2A669A6300B604DE /* HomeMapper.swift in Sources */,
 				F427C1EF2A6698B500B604DE /* DetailPageUseCase.swift in Sources */,
 				F427C2082A669A1F00B604DE /* HomePagePresenter.swift in Sources */,
+				F427C2352A67994F00B604DE /* ProductionCompaniesModel.swift in Sources */,
 				F427C2062A669A1500B604DE /* HomePageRouter.swift in Sources */,
 				F4261EAF2A64210800718138 /* AppDelegate.swift in Sources */,
 				F427C1ED2A6698A700B604DE /* DetailMovieModel.swift in Sources */,
+				F427C23D2A67A12600B604DE /* ProductionCollectionViewCell.swift in Sources */,
+				F427C2392A67A0C100B604DE /* GenreCollectionViewCell.swift in Sources */,
 				F427C20B2A669A4800B604DE /* HomePageViewController.swift in Sources */,
 				F427C1F52A66990300B604DE /* DetailPageDefaultRepository.swift in Sources */,
 				F427C1FD2A66996F00B604DE /* DetailPageEntity.swift in Sources */,

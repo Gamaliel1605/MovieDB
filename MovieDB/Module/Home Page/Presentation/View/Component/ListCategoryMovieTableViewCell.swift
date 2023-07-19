@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol ListCategoryMovieTableViewCellDelegate {
+    func onDidSelectItem(ID: Int)
+}
+
 class ListCategoryMovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lblTitleCategoryMovie: UILabel!
@@ -14,6 +18,7 @@ class ListCategoryMovieTableViewCell: UITableViewCell {
     
     static let ID = "ListCategoryMovieTableViewCell"
     private var movieList: [MovieListModel] = []
+    var delegate: ListCategoryMovieTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,9 +40,10 @@ class ListCategoryMovieTableViewCell: UITableViewCell {
         colView.register(CardMovieCollectionViewCell.nib(), forCellWithReuseIdentifier: CardMovieCollectionViewCell.ID)
     }
     
-    func setData(title: String, movie: [MovieListModel]) {
+    func setData(title: String, movie: [MovieListModel], delegate: ListCategoryMovieTableViewCellDelegate) {
         lblTitleCategoryMovie.text = title
         self.movieList = movie
+        self.delegate = delegate
     }
     
     override func prepareForReuse() {
@@ -59,6 +65,11 @@ extension ListCategoryMovieTableViewCell: UICollectionViewDelegate, UICollection
         cell.setData(data: movieList[indexPath.row])
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        delegate?.onDidSelectItem(ID: movieList[indexPath.row].id ?? 0)
     }
     
 }

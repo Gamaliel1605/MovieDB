@@ -23,6 +23,7 @@ protocol HomePagePresenter {
     func getMoviePopular()
     func getMovieTopRated()
     func getMovieUpcoming()
+    func goToDetailPage(movieID: Int)
     
     func viewDidLoad()
 }
@@ -72,6 +73,10 @@ class HomePageDefaultPresenter: HomePagePresenter {
         getMoviePopular()
         getMovieTopRated()
         getMovieUpcoming()
+    }
+    
+    func goToDetailPage(movieID: Int) {
+        self.router.goToDetailPage(movieID: movieID, controller: view)
     }
     
     func getMovieNowPlaying() {
